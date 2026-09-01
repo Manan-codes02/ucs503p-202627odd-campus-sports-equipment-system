@@ -1,0 +1,689 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{}
+
+\begin{document}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 0\tabcolsep) * \real{1.0000}}@{}}
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+UCS503P --- Project Proposal
+
+\begin{quote}
+\textbf{Campus Sports Equipment Issue--Return System}
+
+\emph{A Digital-Credential Platform Replacing Physical ID-Card
+Collateral for Campus Sports Equipment Lending}\\
+Project Proposal for UCS503P
+\end{quote}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+\textbf{Student Name}
+\end{quote}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+Keshav, Manan ,Tushar
+\end{quote}
+\end{minipage} \\
+\midrule()
+\endhead
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+\textbf{Roll Number}
+\end{quote}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+1024240092 ,1024240136 ,1024240153
+\end{quote}
+\end{minipage} \\
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+\textbf{Branch}
+\end{quote}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+Artificial Intelligence and Machine Learning (AIML)
+\end{quote}
+\end{minipage} \\
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+\textbf{Institute}
+\end{quote}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+Thapar Institute of Engineering and Technology (TIET), Patiala
+\end{quote}
+\end{minipage} \\
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+\textbf{Course}
+\end{quote}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+UCS503
+\end{quote}
+\end{minipage} \\
+\bottomrule()
+\end{longtable}
+
+\begin{quote}
+\textbf{1Higher-order goal}
+
+This project aims to improve student welfare and the operational
+efficiency of campus sports infrastructure by removing the
+administrative friction built into the current equipment-lending
+process. While the immediate trigger is a single policy at one college
+--- students must deposit their college ID card to borrow sports
+equipment --- the underlying engineering objective is broader: design a
+deployable, reusable digital-credential and inventory-tracking system
+that can generalize to any campus asset-lending scenario (sports
+equipment today; library books or lab equipment tomorrow).
+
+\textbf{2Time-to-value}
+
+•We will deliver meaningful increments quickly by prototyping the core
+issue--return workflow (digital token generation and staff-side
+scanning) and validating it with real students and sports-office staff
+within a short iteration window.
+
+•We will prioritize fast feedback over perfection by using weekly
+iterations and CI-backed automation early, to keep release friction low.
+
+•Success is defined by what can be delivered and measured in the first
+iteration --- a working issue/return loop with timestamps --- then
+improved based on user feedback.
+
+\textbf{3Problem Statement}
+
+At present, students who want to borrow sports equipment (bats, rackets,
+footballs, etc.) from the college sports office must hand over their
+physical college ID card as collateral, which is returned only when the
+equipment is returned. In practice this creates real, recurring
+friction:
+
+•Access barrier: students who forget their ID card cannot borrow
+equipment at all, and often end up borrowing a friend\textquotesingle s
+card instead --- which breaks accountability and misattributes usage.
+
+•No visibility: there is no way to check equipment availability before
+walking to the sports office, so students frequently make a wasted trip
+and return empty-handed.
+\end{quote}
+
+1\strut
+\end{minipage} \\
+\midrule()
+\endhead
+\bottomrule()
+\end{longtable}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 0\tabcolsep) * \real{1.0000}}@{}}
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+UCS503P --- Project Proposal
+
+\begin{quote}
+•Manual, paper-based tracking: issue and return records are kept in
+physical registers, making it hard to trace who has what, for how long,
+or in what condition.
+
+•Weak enforcement: the only real penalty mechanism today is withholding
+the ID card itself, which is a blunt, all-or-nothing control rather than
+a graded, trackable consequence such as a fine.
+\end{quote}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Current Process}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Proposed System}
+\end{minipage} \\
+\midrule()
+\endhead
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+ID card held as physical collateral
+\end{quote}
+\end{minipage} & Time-bound digital token; card stays with student \\
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+No visibility into availability before visiting
+\end{quote}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+Live availability + slot reservation
+\end{quote}
+\end{minipage} \\
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+Paper register, hard to trace history
+\end{quote}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+Digital issue--return log with timestamps
+\end{quote}
+\end{minipage} \\
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+Card withheld as sole penalty
+\end{quote}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+Graded fines tied to no-dues clearance
+\end{quote}
+\end{minipage} \\
+\bottomrule()
+\end{longtable}
+
+\begin{quote}
+\textbf{Why this matters now (contextual relevance):} A large college
+with many sports offerings has correspondingly heavy equipment turnover;
+even a modest reduction in wasted trips and untracked loans meaningfully
+improves both student experience and sports-office accountability.
+
+\textbf{4Proposed Solution}
+
+\textbf{4.1Overview}
+
+Build a mobile-friendly web platform (Progressive Web App) that replaces
+the physical ID-card deposit with a time-bound, non-transferable digital
+credential, while borrowing the accountability model of a library
+issue--return system. Core components:
+
+•Student portal: authenticate with college ID, browse live equipment
+availability by category and location, optionally reserve a time slot.
+
+•Digital issue credential: a QR/token generated per request, bound to
+the student, the specific item, and a time slot --- not a reusable
+general-purpose ID.
+
+•Staff scanning app: a lightweight interface for sports-office staff to
+scan the token at issue and again at return, replacing the paper
+register.
+
+•Fine engine: automatic fine calculation for late or damaged returns,
+feeding into the college\textquotesingle s existing "no dues" clearance
+process at semester/degree end.
+
+•Admin dashboard: inventory status, backlog, utilization, and
+most-borrowed items for the sports office.
+
+\textbf{4.2Core workflow}
+
+•Student logs in with their college ID and browses live equipment
+availability, optionally reserving a slot.
+
+•System generates a time-bound digital token for that student, item, and
+slot --- the physical ID card is no longer required.
+
+•Staff scan the token at the counter; the item is marked Issued, the due
+time starts, and the student keeps their ID card.
+
+•On return, staff scan the same request again (or a return-side token)
+and record the item\textquotesingle s condition; the item is marked
+Returned or Damaged.
+\end{quote}
+
+2
+\end{minipage} \\
+\midrule()
+\endhead
+\bottomrule()
+\end{longtable}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 0\tabcolsep) * \real{1.0000}}@{}}
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+UCS503P --- Project Proposal
+
+\begin{quote}
+•If the return is late or the item is damaged, a fine is automatically
+logged against the student\textquotesingle s record and surfaced on both
+the student dashboard and the no-dues clearance system.
+
+\textbf{4.3Operational constraints for an educational, tier-2/3 setting}
+
+•Keep the solution usable on low-to-mid range devices via a responsive
+Progressive Web App rather than a native app, avoiding install friction.
+
+•Avoid dependence on advanced research algorithms; focus on workflow
+correctness, credential design, and accountability.
+
+•Design for deployability using common web hosting and managed
+databases, with a hybrid (app + manual fallback) rollout during the
+pilot so the sports office is never fully blocked by a system outage.
+
+\textbf{4.4Extension: Facility \& Court Slot Booking}\\
+•The complex also has bookable facilities ---
+badminton/tennis/basketball courts, the gym, the pool --- not just loose
+equipment. Since the reservation engine in Section 4.2 already
+generalizes to "a student, an asset, a time slot," the same platform is
+extended to let students book a facility time slot directly, instead of
+only equipment:
+
+•A facility (e.g. "Badminton Court 2") exposes bookable hourly slots,
+shown with live availability alongside equipment, using the same
+browse-and-reserve screen.
+
+•Double-booking is prevented with a simple database-level uniqueness\\
+constraint/transaction on (facility, slot) at confirmation time ---
+deliberately simpler than a distributed lock (e.g. Redis), which is
+unnecessary infrastructure at this scale and would work against the
+course\textquotesingle s "avoid advanced/research-heavy infrastructure"
+guidance.
+
+•No online payment or membership tier is introduced: access stays
+governed by the student\textquotesingle s existing college ID rather
+than a paid subscription, keeping this an extension of the same
+credential system rather than a separate commercial booking product.
+
+•This is scoped as a later-iteration, opt-in module (see Section 9.2)
+built on the existing token/reservation engine, not a parallel system
+--- it is what makes the platform a genuine "sports complex" system
+rather than an equipment-only tool.
+
+\textbf{5Solution Approach}
+
+This is an engineering course project, so the focus is on credential
+design, workflow correctness, and system reliability rather than novel
+algorithm research.
+
+\textbf{5.1Digital credential design}
+
+•Each token is time-bound, non-transferable, and scoped to one student,
+one item, and one slot --- unlike a general-purpose reusable ID.
+\end{quote}
+
+3\strut
+\end{minipage} \\
+\midrule()
+\endhead
+\bottomrule()
+\end{longtable}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 0\tabcolsep) * \real{1.0000}}@{}}
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+UCS503P --- Project Proposal
+
+\begin{quote}
+•Unlike a single-scan canteen-style token, the credential is two-state
+(Issue scan, then Return scan), since equipment lending has two distinct
+events rather than one completed transaction.
+
+•A manual staff-side override (ID lookup) is retained as a fallback for
+scan failures or network issues, so the desk is never blocked.
+
+\textbf{5.2Web architecture}
+
+A typical 3-tier web architecture:
+
+•Frontend: responsive PWA for students (browse, reserve, view token) and
+a simplified scanning view for staff.
+
+•Backend API: authentication, inventory queries, token
+issuance/validation, status transitions, and fine calculation.
+
+•Database: students, equipment items, batches/units, issue-return
+history, fines, and notifications.
+
+\textbf{5.3CI/CD and fast delivery enabler}
+
+•Automatically build and run tests on every change.
+
+•Produce repeatable deployment artifacts to staging.
+
+•Enable safe and frequent releases of incremental features.
+
+\textbf{6Evaluation Criterion \ldots{} measurable and attributable}
+
+We define success using measurable metrics tied to the core workflow.
+
+\textbf{6.1Primary evaluation metric}
+
+\textbf{Time-to-Issue (TTI):} the time between a student generating a
+digital token and receiving the physical equipment at the counter.
+
+•Target: median TTI ≤ 5 minutes during the pilot window.
+
+•Attribution: measured from database timestamps (token generation vs.
+staff issue-scan).
+
+\textbf{6.2Secondary evaluation metrics}
+
+•Empty-handed rate: percentage of visits where a student could not
+obtain equipment due to unavailability, compared against a baseline
+collected before the pilot.
+
+•Return-on-time rate: percentage of items returned before their due
+time.
+
+•Fine-to-resolution rate: percentage of issued fines cleared before
+semester-end dues clearance.
+
+•Staff processing time: time taken per issue/return transaction compared
+with the existing paper-register process.
+\end{quote}
+
+•User clarity: student-reported clarity/satisfaction using a simple 1--5
+feedback question.
+
+4
+\end{minipage} \\
+\midrule()
+\endhead
+\bottomrule()
+\end{longtable}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 0\tabcolsep) * \real{1.0000}}@{}}
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+UCS503P --- Project Proposal
+
+\begin{quote}
+\textbf{6.3Pilot validation plan}
+
+•Recruit 10--20 pilot users (students) and 2--3 sports-office staff for
+a two-week pilot run alongside the existing manual process.
+
+•Compare metrics before/after within the iteration window by logging
+baseline estimates via short interviews and existing register data.
+
+\textbf{7Scalability}
+
+The proposition should scale in both theoretical and practical senses.
+
+\textbf{Scalable (theoretically):} the system should support growth in
+the number of equipment items, concurrent student requests, and
+dashboard usage by:
+
+•decoupling components (frontend/backend),
+
+•enabling pagination and indexing for common queries (availability
+lookups, student history),
+
+•using stateless API design so multiple sports-office counters can
+operate concurrently.
+
+\textbf{Operationally deployable (practically):} the system should run
+on common web hosting:
+
+•managed database,
+
+•containerized or platform-hosted deployment,
+
+•CI/CD pipeline for staging/production.
+
+Because the credential-and-inventory engine is generic (student, asset,
+slot, condition, fine), it is designed to extend beyond sports equipment
+to other campus asset-lending contexts --- library books, lab equipment,
+or event gear --- without a redesign, which is the
+project\textquotesingle s primary scalability argument.
+
+\textbf{8Engine availability heuristic}
+
+A mature set of "engines" (tooling/services) is available to implement
+this as a web-based project; indicative choices are listed below (final
+stack to be confirmed at design time):
+
+•Frontend: React (or Next.js) as an installable Progressive Web App, for
+the student portal and staff scanning view.
+
+•Backend API: Node.js/Express or FastAPI, layered as Route → Service →
+Repository.
+
+•Database: PostgreSQL (managed instance) via an ORM (Prisma/SQLAlchemy)
+for schema migrations.
+
+•Auth: JWT-based sessions, with an integration point for college SSO/ID
+verification where available.
+
+•QR code generation (e.g. qrcode) and browser-based camera scanning
+(e.g. html5-qrcode) library.
+\end{quote}
+
+5
+\end{minipage} \\
+\midrule()
+\endhead
+\bottomrule()
+\end{longtable}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 0\tabcolsep) * \real{1.0000}}@{}}
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+UCS503P --- Project Proposal
+
+\begin{quote}
+•Notification channel for due-time reminders (in-app first via web push;
+email/SMS optional later).
+
+•Test framework: Jest/PyTest for unit and integration tests.
+
+•CI/CD: GitHub Actions runner, deploying containerized builds to a
+staging environment. We will use these mature components to focus on
+workflow design, credential correctness, and measurement rather than
+inventing new infrastructure.
+
+\textbf{9Project scope and deliverables}
+
+\textbf{9.1Initial deliverable}\\
+•Student login and live equipment browsing\\
+•Digital token generation for a request\\
+•Staff scanning app: issue-side scan and status update •Basic logging
+and timestamps for TTI measurement •CI: build + backend unit tests +
+linting\\
+•CD to staging with a single command or pipeline job
+
+\textbf{9.2Subsequent deliverables}\\
+•Return-side scan with condition capture (Returned / Damaged) and
+automatic fine calculation\\
+•Live slot booking/reservation to prevent wasted trips\\
+•Due-time reminder notifications (in-app, then email/SMS)\\
+•No-dues integration or export for semester-end clearance\\
+•Admin dashboard for utilization, backlog, and most-borrowed items\\
+•Improved search/filtering and indexed queries for scale readiness
+
+\textbf{9.3Indicative iteration timeline}
+\end{quote}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Timeframe}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Focus}
+\end{minipage} \\
+\midrule()
+\endhead
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+Week 1--2
+\end{quote}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+Setup, data model, student login, CI pipeline scaffolding
+\end{quote}
+\end{minipage} \\
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+Week 3--4
+\end{quote}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+Live availability browsing, digital token generation, staff issue-scan
+\end{quote}
+\end{minipage} \\
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+Week 5--6
+\end{quote}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+Return-scan, condition capture, automatic fine engine
+\end{quote}
+\end{minipage} \\
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+Week 7--8
+\end{quote}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+Slot booking/reservation, due-time notifications
+\end{quote}
+\end{minipage} \\
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+Week 9--10
+\end{quote}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+Admin dashboard, no-dues export, pilot with real users
+\end{quote}
+\end{minipage} \\
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+Week 11--12
+\end{quote}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+Feedback-driven fixes, scale-readiness pass, final evaluation
+\end{quote}
+\end{minipage} \\
+\bottomrule()
+\end{longtable}
+
+\begin{quote}
+\textbf{10Risks and mitigations}
+
+•Authentication dependency: the system assumes access to a college
+SSO/ID-verification mechanism; if unavailable, fall back to admin-issued
+student credentials for the pilot.
+\end{quote}
+
+6\strut
+\end{minipage} \\
+\midrule()
+\endhead
+\bottomrule()
+\end{longtable}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 0\tabcolsep) * \real{1.0000}}@{}}
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+UCS503P --- Project Proposal
+
+\begin{quote}
+•Staff adoption: paper registers are familiar and trusted; mitigate with
+a simple scanning UI, a hybrid rollout alongside the manual process, and
+a manual-entry fallback for scan failures.
+
+•Damage/loss disputes: mandate a condition note (and optionally a photo)
+at both issue and return to avoid disagreements about pre-existing
+damage.
+
+•No-dues integration access: the college\textquotesingle s
+degree-clearance system may not expose an API; mitigate by exporting a
+fine list the sports office can reconcile manually during the pilot,
+with deeper integration explored later.
+
+•Student adoption resistance: run a short awareness/onboarding push at
+pilot launch, since the workflow changes a habit students already know.
+
+\textbf{11Summary}
+
+This project proposes a deployable web platform that removes the
+ID-card-as-collateral requirement from campus sports equipment lending,
+replacing it with a time-bound digital credential modelled on library
+issue--return accountability. It meets the course criteria by
+emphasizing time-to-value through rapid iterations, implementing CI/CD
+to support frequent safe releases, and using measurable evaluation
+criteria --- especially time-to-issue and empty-handed-visit reduction.
+It remains focused on engineering workflow, credential design, and
+scalability readiness (toward other campus asset-lending use cases)
+rather than research-driven novelty.
+\end{quote}
+
+7
+\end{minipage} \\
+\midrule()
+\endhead
+\bottomrule()
+\end{longtable}
+
+\end{document}
